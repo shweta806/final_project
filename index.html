@@ -34,26 +34,26 @@
 
           </p>
           <div class="infobox-btnwrapper">
-            <button class="infobox-explorebtn selected">Explore</button>
+            <button class="infobox-explorebtn selected" onclick="location.href='works.html'">Explore</button>
           </div>
         </div>
         <div class="display">
-          <img class="display-nft" src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="unsplash-OG44d93i-NJk" border="0">
+          <img class="display-nft" src="https://storage.googleapis.com/a1aa/image/wpFmuNydvRa0BhiJ2mJALeeRmBqSIL4RMUIhevwxf6uSVkhOB.jpg" alt="unsplash-OG44d93i-NJk" border="0">
           <div class="infowrapper">
             <div class="info">
-              <img class="info-img" src="https://images.unsplash.com/photo-1535207010348-71e47296838a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=385&q=80" alt="unsplash-OG44d93i-NJk" border="0">
+              <img class="info-img" src="images.jpeg" alt="unsplash-OG44d93i-NJk" border="0">
               <div>
-                <p>Laura</p>
-                <p>0.21 Weth</p>
+                <p>VM Monitor</p>
+                <p>CoreVitals</p>
               </div>
       </div>
             <div class="info2">
-              <p>WE ARE HERE</p>
+             
               <div class="iconwrapper">
                 <svg width="22" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.7365 2C3.6575 2 1.5 3.8804 1.5 6.5135c0 3.1074 2.3236 5.9603 4.8612 8.1207 1.2458 1.0606 2.4954 1.9137 3.4352 2.5022.4692.2937.8593.5203 1.1305.6727L11 17.85l.0731-.0409a27.984 27.984 0 0 0 1.1304-.6727c.9399-.5885 2.1895-1.4416 3.4353-2.5022C18.1764 12.4738 20.5 9.6209 20.5 6.5135 20.5 3.8805 18.3425 2 16.2635 2c-2.1054 0-3.8008 1.389-4.552 3.6426a.75.75 0 0 1-1.423 0C9.5373 3.389 7.8418 2 5.7365 2ZM11 18.7027l.3426.6672a.7502.7502 0 0 1-.6852 0L11 18.7027ZM0 6.5135C0 3.052 2.829.5 5.7365.5 8.0298.5 9.8808 1.7262 11 3.6048 12.1192 1.7262 13.9702.5 16.2635.5 19.171.5 22 3.052 22 6.5135c0 3.8183-2.8014 7.06-5.3888 9.2628-1.3167 1.121-2.6296 2.0166-3.6116 2.6314-.4918.308-.9025.5467-1.1918.7092a19.142 19.142 0 0 1-.4301.2347l-.0248.013-.007.0036-.0021.0011c-.0003.0001-.0012.0006-.3438-.6666-.3426.6672-.3424.6673-.3426.6672l-.0033-.0017-.007-.0036-.0248-.013a19.142 19.142 0 0 1-.4301-.2347 29.324 29.324 0 0 1-1.1918-.7092c-.982-.6148-2.295-1.5104-3.6116-2.6314C2.8014 13.5735 0 10.3318 0 6.5135Z" fill="#E0E0E0"/>
       </svg>
-                25
+                100%
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
       </div>
       
       <div id="about" class="started">
-        <p class="started-boldtext">Getting started</p>
+        <p class="started-boldtext">About</p>
         <p class="started-slimtext">Eu, molestie commodo, enim pellentesque turpis integer sagittis</p>
         <div class="started-items">
           <div class="itemwrapper">
@@ -141,7 +141,21 @@
           </div>
 
           <div style="display: flex; justify-content: center; align-items: center; ">
-            <button style="display: flex; align-items: center; padding: 12px 48px; border-radius: 16px; font-family: 'Poppins', sans-serif; font-size: 16px; color: white; background: rgba(48, 129, 237, 0.9); border: none; cursor: pointer;">Launch Now</button>
+            <button id="runScript"  style="display: flex; align-items: center; padding: 12px 48px; border-radius: 16px; font-family: 'Poppins', sans-serif; font-size: 16px; color: white; background: rgba(48, 129, 237, 0.9); border: none; cursor: pointer;">Launch Now</button>
+            <p id="response"></p>
+
+    <script>
+        document.getElementById("runScript").addEventListener("click", function() {
+            fetch("http://127.0.0.1:5000/run-script") // Flask default local URL
+            .then(response => response.json()) // Assuming Flask returns JSON
+            .then(data => {
+                document.getElementById("response").innerText = data.message;
+            })
+            .catch(error => {
+                document.getElementById("response").innerText = "Error: " + error.message;
+            });
+        });
+    </script>
           </div>
           
             
